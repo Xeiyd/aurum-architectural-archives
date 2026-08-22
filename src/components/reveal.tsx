@@ -16,14 +16,32 @@ export function Reveal({
   variant?: "text" | "image";
 }) {
   const { ref, shown } = useReveal<HTMLElement>();
+
+  if (variant === "image") {
+    // The clip-path lives on an inner element: a fully clipped node never
+    // reports an intersection, so the observer must watch an unclipped parent.
+    return (
+      <Tag ref={ref as never} className={className}>
+        <div
+          data-shown={shown}
+          style={{ transitionDelay: `${delay}ms` }}
+          className="reveal-img"
+        >
+          {children}
+        </div>
+      </Tag>
+    );
+  }
+
   return (
     <Tag
       ref={ref as never}
       data-shown={shown}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn(variant === "image" ? "reveal-img" : "reveal", className)}
+      className={cn("reveal", className)}
     >
       {children}
     </Tag>
   );
 }
+
