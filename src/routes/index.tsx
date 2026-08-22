@@ -165,7 +165,7 @@ function Index() {
                 width={1600}
                 height={1104}
                 loading="lazy"
-                className="w-full rounded-3xl object-cover"
+                className="aspect-[3/2] w-full rounded-3xl object-cover"
               />
             </Reveal>
           </div>
@@ -181,7 +181,7 @@ function Index() {
                 width={1200}
                 height={1504}
                 loading="lazy"
-                className="w-full rounded-3xl object-cover"
+                className="aspect-[4/5] w-full rounded-3xl object-cover"
               />
             </Reveal>
 

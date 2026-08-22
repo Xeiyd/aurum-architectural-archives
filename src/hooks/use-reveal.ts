@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /** Reveals an element once it scrolls into view. */
-export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.15) {
+export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0) {
   const ref = useRef<T | null>(null);
   const [shown, setShown] = useState(false);
 
