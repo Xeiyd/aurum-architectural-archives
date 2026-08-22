@@ -22,7 +22,7 @@ export function SiteNav() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,padding] duration-700 ease-[var(--ease-quiet)]",
         scrolled
-          ? "border-b border-border/60 bg-background/70 py-4 backdrop-blur-xl"
+          ? "border-b border-border/60 bg-background/85 py-4 backdrop-blur-xl"
           : "border-b border-transparent py-6 md:py-8",
       )}
     >
