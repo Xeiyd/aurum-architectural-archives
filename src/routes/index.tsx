@@ -1,14 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { properties as collection } from "@/data/properties";
 import heroImg from "@/assets/hero.jpg";
 import featuredImg from "@/assets/featured.jpg";
 import storyImg from "@/assets/story.jpg";
 import galleryImg from "@/assets/gallery.jpg";
-import p1 from "@/assets/p1.jpg";
-import p2 from "@/assets/p2.jpg";
-import p3 from "@/assets/p3.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,29 +31,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const collection = [
-  {
-    img: p1,
-    name: "Casa Lumen",
-    place: "Costa Brava, Spain",
-    detail: "5 Bedrooms · 890 sqm",
-    price: "€14.2M",
-  },
-  {
-    img: p2,
-    name: "Cliff House",
-    place: "Big Sur, California",
-    detail: "4 Bedrooms · 720 sqm",
-    price: "$21.5M",
-  },
-  {
-    img: p3,
-    name: "Villa Noir",
-    place: "Ikoyi, Lagos",
-    detail: "6 Bedrooms · 1,140 sqm",
-    price: "₦2.4B",
-  },
-];
+
+
 
 function Index() {
   return (
@@ -217,7 +195,7 @@ function Index() {
           <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
             {collection.map((item, i) => (
               <Reveal key={item.name} delay={i * 140}>
-                <a href="#consultation" className="group block">
+                <Link to="/properties/$slug" params={{ slug: item.slug }} className="group block">
                   <div className="overflow-hidden rounded-3xl bg-muted">
                     <img
                       src={item.img}
@@ -235,10 +213,15 @@ function Index() {
                       <span>{item.detail}</span>
                       <span className="font-serif text-base text-foreground">{item.price}</span>
                     </div>
+                    <span className="mt-5 inline-flex items-center gap-3 text-[0.6875rem] uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-terracotta">
+                      View residence
+                      <span className="h-px w-8 bg-accent transition-all duration-700 ease-[var(--ease-quiet)] group-hover:w-12" />
+                    </span>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
+
           </div>
         </section>
 
