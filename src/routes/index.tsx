@@ -1,14 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { properties as collection } from "@/data/properties";
 import heroImg from "@/assets/hero.jpg";
 import featuredImg from "@/assets/featured.jpg";
 import storyImg from "@/assets/story.jpg";
 import galleryImg from "@/assets/gallery.jpg";
-import p1 from "@/assets/p1.jpg";
-import p2 from "@/assets/p2.jpg";
-import p3 from "@/assets/p3.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
