@@ -171,7 +171,7 @@ function PropertyDetail() {
                 variant="image"
                 key={`${g.src}-${i}`}
                 delay={(i % 2) * 120}
-                className={i % 3 === 0 ? "md:col-span-2" : undefined}
+                className={i % 3 === 0 ? "md:col-span-2" : ""}
               >
                 <img
                   src={g.src}
