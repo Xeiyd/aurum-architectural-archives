@@ -217,7 +217,7 @@ function Index() {
           <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
             {collection.map((item, i) => (
               <Reveal key={item.name} delay={i * 140}>
-                <a href="#consultation" className="group block">
+                <Link to="/properties/$slug" params={{ slug: item.slug }} className="group block">
                   <div className="overflow-hidden rounded-3xl bg-muted">
                     <img
                       src={item.img}
@@ -235,10 +235,15 @@ function Index() {
                       <span>{item.detail}</span>
                       <span className="font-serif text-base text-foreground">{item.price}</span>
                     </div>
+                    <span className="mt-5 inline-flex items-center gap-3 text-[0.6875rem] uppercase tracking-[0.2em] transition-colors duration-500 group-hover:text-terracotta">
+                      View residence
+                      <span className="h-px w-8 bg-accent transition-all duration-700 ease-[var(--ease-quiet)] group-hover:w-12" />
+                    </span>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
+
           </div>
         </section>
 
