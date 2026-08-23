@@ -31,29 +31,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const collection = [
-  {
-    img: p1,
-    name: "Casa Lumen",
-    place: "Costa Brava, Spain",
-    detail: "5 Bedrooms · 890 sqm",
-    price: "€14.2M",
-  },
-  {
-    img: p2,
-    name: "Cliff House",
-    place: "Big Sur, California",
-    detail: "4 Bedrooms · 720 sqm",
-    price: "$21.5M",
-  },
-  {
-    img: p3,
-    name: "Villa Noir",
-    place: "Ikoyi, Lagos",
-    detail: "6 Bedrooms · 1,140 sqm",
-    price: "₦2.4B",
-  },
-];
+
+
 
 function Index() {
   return (
