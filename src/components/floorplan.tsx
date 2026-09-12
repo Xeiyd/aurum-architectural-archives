@@ -8,8 +8,8 @@ export function Floorplan({ levels }: { levels: PlanLevel[] }) {
   const [levelIdx, setLevelIdx] = useState(0);
   const [roomIdx, setRoomIdx] = useState(0);
 
-  const level = levels[levelIdx];
-  const activeRoom = level.rooms[roomIdx] ?? level.rooms[0];
+  const level = levels[levelIdx] ?? levels[0]!;
+  const activeRoom = level.rooms[roomIdx] ?? level.rooms[0]!;
 
   const selectLevel = (i: number) => {
     setLevelIdx(i);
