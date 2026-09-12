@@ -2,7 +2,9 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 
 import { SiteNav } from "@/components/site-nav";
 import { Reveal } from "@/components/reveal";
+import { Floorplan } from "@/components/floorplan";
 import { getProperty, properties } from "@/data/properties";
+import { floorplans } from "@/data/floorplans";
 
 export const Route = createFileRoute("/properties/$slug")({
   loader: ({ params }) => {
@@ -135,26 +137,23 @@ function PropertyDetail() {
           </div>
         </section>
 
-        {/* ── Layout ───────────────────────────────────────── */}
-        <section className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
-          <Reveal className="max-w-lg">
-            <p className="eyebrow">Layout</p>
-            <h2 className="display mt-6 text-[clamp(1.85rem,3.6vw,2.75rem)]">
-              Arranged <span className="italic text-foreground/70">level by level</span>
-            </h2>
-          </Reveal>
-
-          <div className="mt-14 border-t border-border">
-            {property.layout.map((row, i) => (
-              <Reveal key={row.level} delay={i * 90}>
-                <div className="grid gap-2 border-b border-border py-7 md:grid-cols-[220px_1fr] md:gap-10">
-                  <p className="font-serif text-xl">{row.level}</p>
-                  <p className="text-[0.95rem] leading-[1.9] text-muted-foreground">{row.rooms}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        {/* ── Floorplans ───────────────────────────────────── */}
+        {floorplans[property.slug] && (
+          <section className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-36">
+            <Reveal className="max-w-lg">
+              <p className="eyebrow">Floorplans</p>
+              <h2 className="display mt-6 text-[clamp(1.85rem,3.6vw,2.75rem)]">
+                Arranged <span className="italic text-foreground/70">level by level</span>
+              </h2>
+              <p className="mt-6 text-[0.95rem] leading-[1.9] text-muted-foreground">
+                Choose a level, then trace each room — hover or tap to read its story.
+              </p>
+            </Reveal>
+            <div className="mt-16">
+              <Floorplan levels={floorplans[property.slug]} />
+            </div>
+          </section>
+        )}
 
         {/* ── Gallery ──────────────────────────────────────── */}
         <section className="mx-auto max-w-[1320px] px-6 pb-24 md:px-10 md:pb-36">
