@@ -150,7 +150,7 @@ function PropertyDetail() {
               </p>
             </Reveal>
             <div className="mt-16">
-              <Floorplan levels={floorplans[property.slug]} />
+              <Floorplan levels={floorplans[property.slug]!} />
             </div>
           </section>
         )}
